@@ -1,4 +1,4 @@
-
+//Klementina Stojanovska
 /*
  * BinaryTree.h
  *
@@ -48,8 +48,8 @@ public:
 	virtual int height2(Node *u);
 	virtual int height2();
 	virtual bool isBalanced();
-	virtual bool isBalanced(Node *u);
-	//virtual int isBalanced(Node *u);
+	//virtual bool isBalanced(Node *u);
+	virtual int isBalanced(Node *u);
 	virtual int subtreeSize(Node *u);
 };
 
@@ -228,25 +228,27 @@ int BinaryTree<Node>::height2(){
 //for the root node, r.
 template<class Node>
 bool BinaryTree<Node>::isBalanced(){
-//	if(isBalanced(r)<=1){
-//		return true;
-//	}
-//	return false;
-	return isBalanced(r);
+	if(isBalanced(r)<=1){
+		return true;
+	}
+	return false;
+//	return isBalanced(r);
 }
 
 //checks the size of the left subtree and
 //the right subtree to see if the tree is balanced
 template<class Node>
-bool BinaryTree<Node>::isBalanced(Node *u){
-		int sizeLeft = subtreeSize(r->left);
-		int sizeRight = subtreeSize(r->right);
-		if(abs(sizeLeft-sizeRight) <=1 ){
-			return true;
-		}
-		return false;
-//	if(u == nil || u->right == nil || u->left== nil) return 0;
-//	return abs((1+isBalanced(u->left->left)+ isBalanced(u->left->right))- (1+ isBalanced(u->right->left) + isBalanced(u->right->right)));
+int BinaryTree<Node>::isBalanced(Node *u){
+	//this is the isBalanced() using a size method.
+//		int sizeLeft = subtreeSize(r->left);
+//		int sizeRight = subtreeSize(r->right);
+//		if(abs(sizeLeft-sizeRight) <=1 ){
+//			return true;
+//		}
+//		return false;
+
+	if(u == nil || u->right == nil || u->left== nil) return 0;
+	return abs((1+isBalanced(u->left->left)+ isBalanced(u->left->right))- (1+ isBalanced(u->right->left) + isBalanced(u->right->right)));
 }
 
 template<class Node>
