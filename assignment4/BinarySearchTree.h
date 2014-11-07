@@ -313,8 +313,9 @@ template<class T>
 BinarySearchTree1<T>::BinarySearchTree1()  {
 }
 
-//This method finds the node you are looking
-//for that contains the element x.
+//This method finds the node that contains
+//the element x that you are looking for
+//and returns that node.
 template<class Node, class T>
 Node* BinarySearchTree<Node,T>:: getNode(T x){
 	Node *w = r, *z = nil;
